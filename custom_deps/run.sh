@@ -36,7 +36,7 @@ for dep in ${PYPI}; do
     bashio::log.info "Installing python package '${dep}'"
     
     # shellcheck disable=SC2086
-    if ! ERROR="$(pip3 install --user --no-cache-dir --no-dependencies --disable-pip-version-check ${dep})"; then
+    if ! ERROR="$(pip3 install --user --no-cache-dir --disable-pip-version-check ${dep})"; then
         bashio::log.error "Can't install ${dep}!"
         bashio::log.error "${ERROR}" && exit 1
     fi
